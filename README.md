@@ -18,7 +18,7 @@ exchange UI that uses the 0x API to easily swap between DAI and USDC.
 
 This demo will only work on the Goerli testnet.
 
-This tutorial will be using 2 dummy ERC20 token contracts that I deployed on the Goerli testnet. These are not the real DAI and USDC, but they are drop-in replacements. Each contract also exposes a `mint(uint256)` function that can be used to create tokens for the user.
+This tutorial will be using 2 dummy ERC20 token contracts that are deployed on the Goerli testnet. These are not the real DAI and USDC, but they are drop-in replacements. Each contract also exposes a `mint(uint256)` function that can be used to create tokens for the user.
 
 - DAI (18 decimals) is hosted at: `0xdc31Ee1784292379Fbb2964b3B9C4124D8F89C60`
 - USDC (6 decimals) is hosted at: `0x07865c6e87b9f70255377e024ace6630c1eaa37f`
