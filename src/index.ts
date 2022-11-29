@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const client = new Web3Wrapper(providerEngine);
     const provider = client.getProvider();
     const chainId = await client.getChainIdAsync();
-    if (chainId !== 42) {
+    if (chainId !== 5) {
         throw new Error(`Chain ID should be set to Kovan, it was set to ${chainId}`);
     }
 

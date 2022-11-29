@@ -1,40 +1,28 @@
-// ⚠️ This file contains a lot of misc functions/interfaces/helper functions that have been made to reduce
-// some of the complexity of Ethereum.
+
 
 import { BigNumber } from "@0x/utils";
 import { SignedOrder } from "@0x/types";
 import { SupportedProvider, Web3Wrapper } from "@0x/web3-wrapper";
 import { DummyERC20TokenContract } from "@0x/contracts-erc20";
 
-// Hack! The `ERC20TokenContract` in "@0x/contracts-erc20" does not have `decimals()`, so I am using
-// an internal contract that is called `DummyERC20TokenContract` instead.
+
 export { DummyERC20TokenContract as ERC20TokenContract } from "@0x/contracts-erc20";
 
-
-// Attention! This tutorial will be using 2 dummy ERC20 token contracts
-// that I deployed on the Kovan testnet. These are not the real DAI and
-// USDC, but they are drop-in replacements.
-
-// These fake token contracts are your standard ERC20 token contracts, but they have a
-// special `mint(amount)` function that allows you to create new tokens at any time.
-// 
-export const FAKE_DAI = '0x48178164eB4769BB919414Adc980b659a634703E';
-export const FAKE_USDC = '0x5a719Cf3E02c17c876F6d294aDb5CB7C6eB47e2F';
+export const FAKE_DAI = '0xdc31Ee1784292379Fbb2964b3B9C4124D8F89C60';
+export const FAKE_USDC = '0x07865c6e87b9f70255377e024ace6630c1eaa37f';
 
 export const DEFAULT_MINT_AMOUNT = new BigNumber(1_000);
 export const INFINITE_ALLOWANCE = new BigNumber(2).pow(256).minus(1);
 export const IN_A_YEAR = new BigNumber(1616731441);
 export const ZERO = new BigNumber(0);
 export const DEFAULT_GAS_PRICE = new BigNumber(5000000000);
-export const KOVAN_0x_API = 'https://kovan.api.0x.org'
-export const INFURA_RPC_URL = 'https://kovan.infura.io/v3/f98b693fe61e41ada1a82dab93a3a888'
+export const KOVAN_0x_API = 'https://goerli.api.0x.org/'
+export const INFURA_RPC_URL = 'https://goerli.infura.io/v3/cc439c9bfac44d1ca09b6f6c24cb3cdb'
 export const MAP_TOKEN_TO_NAME: {[key: string]: string} = {
     [FAKE_DAI]: 'DAI',
     [FAKE_USDC]: 'DAI',
 }
 
-// Please don't mind this interface definition, it's only needed to
-// tell TypeScript that `web3` and `ethereum` may be globally defined
 export interface MetamaskWindow {
     web3?: {
         currentProvider: SupportedProvider,
@@ -88,11 +76,7 @@ export function linkBtnToCallback(buttonId: string, callback: (...args: any[]) =
     button.onclick = callback;
 }
 
-/**
- * A simple utility to set text on to a ID
- * @param buttonId the button ID as a string, must be unique
- * @param text a string to set
- */
+
 export function setTextOnDOMElement(buttonId: string, text: string): void {
     const button = document.getElementById(buttonId);
     if (button === null) {
